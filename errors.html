@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Number guessing game</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+      .lastResult {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+/* computer choice */
+
+const choices = ['rock', 'paper', 'scissors']
+   
+function computerPlay(){
+        let choice = (choices[Math.floor(Math.random()*choices.length)]);
+        console.log(choice);
+        return choice;
+        }            
+/* Human choice */
+
+function personPlay(){
+    let choice = (window.prompt("Please enter your choice.", ));
+    return choice;
+      } 
+let human = 0
+let computer = 0
+    
+function playRound(computerSelection, playerSelection){
+  
+    if ( (computerSelection == "rock" && playerSelection == "scissors") ||
+    (computerSelection == "scissors" && playerSelection == "paper") ||
+    (computerSelection == "paper" && playerSelection == "rock"))
+        {
+        console.log('You lose');
+        computer = ++computer;
+    }  
+      else if( playerSelection ==  computerSelection){
+        console.log('Draw!');
+      }
+      else {console.log('You win!');
+        human = ++human;}
+    }
+     
+
+playRound(computerPlay(), personPlay());
+playRound(computerPlay(), personPlay());
+playRound(computerPlay(), personPlay());
+playRound(computerPlay(), personPlay());
+playRound(computerPlay(), personPlay());
+console.log('wins - ', human);
+console.log('loses -', computer);
+
+if (human > computer) {
+  console.log("you Win!");
+  
+} else {console.log('You lose');
+  
+}
+
+    </script>
+</html>
+
